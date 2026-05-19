@@ -21,28 +21,16 @@
       --sun: #f6b84d;
       --sun-2: #ffe29a;
       --clay: #b76538;
-      --clay-2: #7f432a;
-      --green: #78934d;
       --green-2: #a5bf6c;
-      --fog: #879090;
       --arcane: #9b7ae3;
-      --arcane-2: #d9c4ff;
+      --focus: rgba(255, 226, 154, .94);
       --shadow: 0 28px 90px rgba(0, 0, 0, .36);
       --radius-xl: 34px;
-      --radius-lg: 24px;
-      --radius-md: 16px;
       --max: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
       min-height: 100vh;
@@ -80,13 +68,14 @@
         radial-gradient(circle at center, transparent 0 58%, rgba(0,0,0,.28));
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
 
-    button {
-      font: inherit;
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 4px;
+      box-shadow: 0 0 0 6px rgba(255, 226, 154, .23);
     }
 
     .grain {
@@ -130,6 +119,7 @@
       align-items: center;
       gap: 13px;
       min-width: 0;
+      border-radius: 18px;
     }
 
     .brand-mark {
@@ -148,28 +138,10 @@
       box-shadow: 0 12px 34px rgba(0,0,0,.26), 0 0 34px rgba(246,184,77,.20);
     }
 
-    .brand strong {
-      display: block;
-      font-size: 1.05rem;
-      line-height: 1;
-      letter-spacing: .2px;
-    }
+    .brand strong { display: block; font-size: 1.05rem; line-height: 1; letter-spacing: .2px; }
+    .brand span { display: block; margin-top: 5px; color: var(--muted); font-size: .74rem; letter-spacing: 1.4px; text-transform: uppercase; white-space: nowrap; }
 
-    .brand span {
-      display: block;
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: .74rem;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
+    .nav-links { display: flex; align-items: center; gap: 7px; }
 
     .nav-links a,
     .music-btn {
@@ -190,20 +162,11 @@
       transform: translateY(-1px);
     }
 
-    .music-btn {
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.04);
-    }
+    .music-btn { border: 1px solid var(--line); background: rgba(255,255,255,.04); }
+    .music-btn.playing { color: #18220e; background: linear-gradient(180deg, #c8ea92, var(--green-2)); border-color: rgba(255,255,255,.35); }
+    .music-btn:disabled { cursor: not-allowed; opacity: .72; }
 
-    .music-btn.playing {
-      color: #18220e;
-      background: linear-gradient(180deg, #c8ea92, var(--green-2));
-      border-color: rgba(255,255,255,.35);
-    }
-
-    .hero {
-      padding: 78px 0 70px;
-    }
+    .hero { padding: 78px 0 70px; }
 
     .hero-grid {
       display: grid;
@@ -234,15 +197,10 @@
       line-height: .84;
       letter-spacing: -4px;
       color: var(--sun-2);
-      text-shadow:
-        0 7px 0 rgba(0,0,0,.26),
-        0 0 70px rgba(246,184,77,.18);
+      text-shadow: 0 7px 0 rgba(0,0,0,.26), 0 0 70px rgba(246,184,77,.18);
     }
 
-    h1 em {
-      font-style: normal;
-      color: #fff7c9;
-    }
+    h1 em { font-style: normal; color: #fff7c9; }
 
     .lead {
       max-width: 660px;
@@ -251,12 +209,7 @@
       line-height: 1.82;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
+    .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 
     .tag {
       display: inline-flex;
@@ -270,12 +223,7 @@
       font-size: .92rem;
     }
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-      margin-top: 30px;
-    }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
 
     .btn {
       min-height: 52px;
@@ -291,31 +239,11 @@
       transition: .18s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.04);
-    }
-
-    .btn-primary {
-      color: #271609;
-      background: linear-gradient(180deg, var(--sun-2), var(--sun));
-    }
-
-    .btn-secondary {
-      color: #fff0d3;
-      background: rgba(255,255,255,.07);
-      border-color: var(--line-strong);
-    }
-
-    .disabled {
-      cursor: not-allowed;
-      opacity: .82;
-    }
-
-    .disabled:hover {
-      transform: none;
-      filter: none;
-    }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.04); }
+    .btn-primary { color: #271609; background: linear-gradient(180deg, var(--sun-2), var(--sun)); }
+    .btn-secondary { color: #fff0d3; background: rgba(255,255,255,.07); border-color: var(--line-strong); }
+    .btn:disabled { cursor: not-allowed; opacity: .82; transform: none; filter: none; }
+    .btn:disabled:hover { transform: none; filter: none; }
 
     .hero-card {
       position: relative;
@@ -327,6 +255,35 @@
         radial-gradient(circle at 78% 16%, rgba(255, 226, 154, .34), transparent 13rem),
         linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
       box-shadow: var(--shadow);
+    }
+
+    .image-card {
+      min-height: auto;
+      aspect-ratio: 16 / 9;
+      background: #211209;
+      border: 1px solid rgba(255, 226, 154, .38);
+      box-shadow: 0 28px 90px rgba(0,0,0,.38), 0 0 70px rgba(246,184,77,.10);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .image-status {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      z-index: 5;
+      padding: 10px 13px;
+      border-radius: 999px;
+      color: #ffe8bd;
+      background: rgba(29,16,10,.72);
+      border: 1px solid rgba(255,223,156,.28);
+      backdrop-filter: blur(10px);
+      font-size: .9rem;
     }
 
     .hero-card::before {
@@ -468,22 +425,8 @@
       box-shadow: 0 24px 64px rgba(0,0,0,.30);
     }
 
-    .cover-title strong {
-      display: block;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.1rem, 4vw, 3.1rem);
-      letter-spacing: 3px;
-      line-height: .95;
-    }
-
-    .cover-title span {
-      display: block;
-      margin-top: 10px;
-      color: #f1d3a0;
-      font-size: .86rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+    .cover-title strong { display: block; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.1rem, 4vw, 3.1rem); letter-spacing: 3px; line-height: .95; }
+    .cover-title span { display: block; margin-top: 10px; color: #f1d3a0; font-size: .86rem; letter-spacing: 2px; text-transform: uppercase; }
 
     .status-chip {
       position: absolute;
@@ -513,27 +456,9 @@
       gap: 10px;
     }
 
-    .cover-stat {
-      padding: 13px;
-      border-radius: 16px;
-      background: rgba(29,16,10,.70);
-      border: 1px solid rgba(255,223,156,.18);
-      backdrop-filter: blur(10px);
-    }
-
-    .cover-stat small {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--muted-2);
-      font-size: .75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .cover-stat strong {
-      color: #ffe8bd;
-      font-size: .95rem;
-    }
+    .cover-stat { padding: 13px; border-radius: 16px; background: rgba(29,16,10,.70); border: 1px solid rgba(255,223,156,.18); backdrop-filter: blur(10px); }
+    .cover-stat small { display: block; margin-bottom: 4px; color: var(--muted-2); font-size: .75rem; text-transform: uppercase; letter-spacing: 1px; }
+    .cover-stat strong { color: #ffe8bd; font-size: .95rem; }
 
     .hotbar {
       position: absolute;
@@ -551,58 +476,15 @@
       backdrop-filter: blur(10px);
     }
 
-    .slot {
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      color: #ffe3b0;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,223,156,.22);
-      font-size: 1rem;
-    }
+    .slot { aspect-ratio: 1; display: grid; place-items: center; border-radius: 12px; color: #ffe3b0; background: rgba(255,255,255,.06); border: 1px solid rgba(255,223,156,.22); font-size: 1rem; }
+    .slot.active { color: #211209; background: linear-gradient(180deg, var(--sun-2), var(--sun)); }
 
-    .slot.active {
-      color: #211209;
-      background: linear-gradient(180deg, var(--sun-2), var(--sun));
-    }
+    section { padding: 78px 0; }
+    .section-kicker { margin-bottom: 12px; color: #ffdd9b; font-size: .78rem; font-weight: 850; letter-spacing: 2px; text-transform: uppercase; }
+    .section-title { max-width: 860px; margin-bottom: 16px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.1rem, 4.5vw, 4rem); line-height: 1.02; color: var(--sun-2); letter-spacing: -1px; }
+    .section-lead { max-width: 820px; margin-bottom: 30px; color: #e9cda1; font-size: 1.05rem; line-height: 1.82; }
 
-    section {
-      padding: 78px 0;
-    }
-
-    .section-kicker {
-      margin-bottom: 12px;
-      color: #ffdd9b;
-      font-size: .78rem;
-      font-weight: 850;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .section-title {
-      max-width: 860px;
-      margin-bottom: 16px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.1rem, 4.5vw, 4rem);
-      line-height: 1.02;
-      color: var(--sun-2);
-      letter-spacing: -1px;
-    }
-
-    .section-lead {
-      max-width: 820px;
-      margin-bottom: 30px;
-      color: #e9cda1;
-      font-size: 1.05rem;
-      line-height: 1.82;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
     .card {
       position: relative;
@@ -615,232 +497,64 @@
       box-shadow: 0 22px 70px rgba(0,0,0,.20);
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at top right, rgba(255,223,156,.12), transparent 12rem);
-    }
+    .card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at top right, rgba(255,223,156,.12), transparent 12rem); }
+    .card-icon, .card h3, .card p, .card ul { position: relative; }
+    .card-icon { width: 54px; height: 54px; display: grid; place-items: center; margin-bottom: 16px; border-radius: 17px; color: #251509; background: linear-gradient(180deg, var(--sun-2), var(--sun)); font-size: 1.3rem; box-shadow: 0 14px 34px rgba(0,0,0,.18); }
+    .card h3 { margin-bottom: 10px; color: #ffe8bd; font-size: 1.25rem; }
+    .card p, .card li { color: #e8cfaa; line-height: 1.75; }
+    .card ul { padding-left: 18px; }
 
-    .card-icon,
-    .card h3,
-    .card p,
-    .card ul {
-      position: relative;
-    }
+    .feature-row { display: grid; grid-template-columns: .95fr 1.05fr; gap: 18px; align-items: stretch; }
+    .trailer-card { min-height: 330px; display: grid; place-items: center; text-align: center; background: radial-gradient(circle at center, rgba(255,223,156,.18), transparent 12rem), linear-gradient(135deg, rgba(120,147,77,.28), rgba(155,122,227,.17)); }
+    .play-circle { width: 106px; height: 106px; display: grid; place-items: center; margin: 0 auto 18px; border-radius: 999px; color: #251509; background: linear-gradient(180deg, var(--sun-2), var(--sun)); box-shadow: 0 26px 70px rgba(0,0,0,.25), 0 0 50px rgba(246,184,77,.18); font-size: 2.2rem; font-weight: 900; }
 
-    .card-icon {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 16px;
-      border-radius: 17px;
-      color: #251509;
-      background: linear-gradient(180deg, var(--sun-2), var(--sun));
-      font-size: 1.3rem;
-      box-shadow: 0 14px 34px rgba(0,0,0,.18);
-    }
+    .island-main { background: radial-gradient(circle at top right, rgba(255,223,156,.12), transparent 12rem), linear-gradient(135deg, rgba(120,147,77,.28), rgba(183,101,56,.10)); }
+    .island-gray { background: radial-gradient(circle at top right, rgba(210,220,220,.13), transparent 12rem), linear-gradient(135deg, rgba(135,144,144,.28), rgba(30,36,36,.12)); }
+    .island-arcane { background: radial-gradient(circle at top right, rgba(217,196,255,.15), transparent 12rem), linear-gradient(135deg, rgba(155,122,227,.30), rgba(246,184,77,.08)); }
 
-    .card h3 {
-      margin-bottom: 10px;
-      color: #ffe8bd;
-      font-size: 1.25rem;
-    }
-
-    .card p,
-    .card li {
-      color: #e8cfaa;
-      line-height: 1.75;
-    }
-
-    .card ul {
-      padding-left: 18px;
-    }
-
-    .feature-row {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .trailer-card {
-      min-height: 330px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      background:
-        radial-gradient(circle at center, rgba(255,223,156,.18), transparent 12rem),
-        linear-gradient(135deg, rgba(120,147,77,.28), rgba(155,122,227,.17));
-    }
-
-    .play-circle {
-      width: 106px;
-      height: 106px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 18px;
-      border-radius: 999px;
-      color: #251509;
-      background: linear-gradient(180deg, var(--sun-2), var(--sun));
-      box-shadow: 0 26px 70px rgba(0,0,0,.25), 0 0 50px rgba(246,184,77,.18);
-      font-size: 2.2rem;
-      font-weight: 900;
-    }
-
-    .island-main {
-      background:
-        radial-gradient(circle at top right, rgba(255,223,156,.12), transparent 12rem),
-        linear-gradient(135deg, rgba(120,147,77,.28), rgba(183,101,56,.10));
-    }
-
-    .island-gray {
-      background:
-        radial-gradient(circle at top right, rgba(210,220,220,.13), transparent 12rem),
-        linear-gradient(135deg, rgba(135,144,144,.28), rgba(30,36,36,.12));
-    }
-
-    .island-arcane {
-      background:
-        radial-gradient(circle at top right, rgba(217,196,255,.15), transparent 12rem),
-        linear-gradient(135deg, rgba(155,122,227,.30), rgba(246,184,77,.08));
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr .8fr;
-      grid-auto-rows: 210px;
-      gap: 18px;
-    }
-
-    .shot {
-      position: relative;
-      overflow: hidden;
-      border-radius: 26px;
-      border: 1px solid var(--line);
-      box-shadow: 0 22px 70px rgba(0,0,0,.22);
-      background: linear-gradient(135deg, rgba(255,223,156,.14), rgba(255,255,255,.04));
-    }
-
-    .shot:first-child {
-      grid-row: span 2;
-    }
-
-    .shot::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 72% 20%, rgba(255,255,255,.17), transparent 8rem),
-        linear-gradient(180deg, transparent 0 68%, rgba(0,0,0,.18) 100%),
-        repeating-linear-gradient(90deg, rgba(255,255,255,.045) 0 10px, transparent 10px 30px);
-    }
-
-    .shot::after {
-      position: absolute;
-      left: 16px;
-      bottom: 16px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      color: #fff0cf;
-      font-weight: 750;
-      background: rgba(29,16,10,.72);
-      border: 1px solid rgba(255,223,156,.22);
-      backdrop-filter: blur(10px);
-    }
-
+    .gallery { display: grid; grid-template-columns: 1.2fr .8fr .8fr; grid-auto-rows: 210px; gap: 18px; }
+    .shot { position: relative; overflow: hidden; border-radius: 26px; border: 1px solid var(--line); box-shadow: 0 22px 70px rgba(0,0,0,.22); background: linear-gradient(135deg, rgba(255,223,156,.14), rgba(255,255,255,.04)); }
+    .shot:first-child { grid-row: span 2; }
+    .shot::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 72% 20%, rgba(255,255,255,.17), transparent 8rem), linear-gradient(180deg, transparent 0 68%, rgba(0,0,0,.18) 100%), repeating-linear-gradient(90deg, rgba(255,255,255,.045) 0 10px, transparent 10px 30px); }
+    .shot::after { position: absolute; left: 16px; bottom: 16px; padding: 10px 12px; border-radius: 14px; color: #fff0cf; font-weight: 750; background: rgba(29,16,10,.72); border: 1px solid rgba(255,223,156,.22); backdrop-filter: blur(10px); }
     .shot.farm { background: linear-gradient(135deg, #78934d, #d18a48 54%, #6a3923); }
     .shot.gray { background: linear-gradient(135deg, #828c8b, #303838); }
     .shot.arcane { background: linear-gradient(135deg, #6848a9, #a58aec); }
     .shot.village { background: linear-gradient(135deg, #d59954, #7a462b); }
     .shot.hudshot { background: linear-gradient(135deg, #324d2a, #8d5031); }
-
     .shot.farm::after { content: "Fazenda principal"; }
     .shot.gray::after { content: "Ilha Cinzenta"; }
     .shot.arcane::after { content: "Ilha Arcana"; }
     .shot.village::after { content: "Vila e moradores"; }
     .shot.hudshot::after { content: "HUD e hotbar"; }
 
-    .progress-wrap {
-      display: grid;
-      gap: 13px;
-    }
+    .progress-wrap { display: grid; gap: 13px; }
+    .progress-item { display: grid; grid-template-columns: 170px 1fr 62px; gap: 14px; align-items: center; padding: 14px; border-radius: 18px; color: #ffe8bd; background: rgba(0,0,0,.14); border: 1px solid rgba(255,223,156,.16); }
+    .meter { height: 12px; overflow: hidden; border-radius: 999px; background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.08); }
+    .meter span { display: block; width: var(--value); height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--sun), var(--green-2)); }
 
-    .progress-item {
-      display: grid;
-      grid-template-columns: 170px 1fr 62px;
-      gap: 14px;
-      align-items: center;
-      padding: 14px;
-      border-radius: 18px;
-      color: #ffe8bd;
-      background: rgba(0,0,0,.14);
-      border: 1px solid rgba(255,223,156,.16);
-    }
+    .download-box { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; padding: 30px; border-radius: 34px; background: radial-gradient(circle at top right, rgba(255,223,156,.15), transparent 16rem), linear-gradient(180deg, var(--panel-2), var(--panel)); border: 1px solid var(--line-strong); box-shadow: var(--shadow); }
+    .notice { margin-top: 12px; color: #efcf9d; font-size: .96rem; }
 
-    .meter {
-      height: 12px;
-      overflow: hidden;
-      border-radius: 999px;
-      background: rgba(0,0,0,.28);
-      border: 1px solid rgba(255,255,255,.08);
-    }
+    footer { padding: 40px 0 52px; color: var(--muted); border-top: 1px solid var(--line); }
+    .footer-content { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
 
-    .meter span {
-      display: block;
-      width: var(--value);
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--sun), var(--green-2));
-    }
+    @keyframes portalPulse { 0%, 100% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.04); filter: brightness(1.22); } }
 
-    .download-box {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: center;
-      padding: 30px;
-      border-radius: 34px;
-      background:
-        radial-gradient(circle at top right, rgba(255,223,156,.15), transparent 16rem),
-        linear-gradient(180deg, var(--panel-2), var(--panel));
-      border: 1px solid var(--line-strong);
-      box-shadow: var(--shadow);
-    }
-
-    .notice {
-      margin-top: 12px;
-      color: #efcf9d;
-      font-size: .96rem;
-    }
-
-    footer {
-      padding: 40px 0 52px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    @keyframes portalPulse {
-      0%, 100% { transform: scale(1); filter: brightness(1); }
-      50% { transform: scale(1.04); filter: brightness(1.22); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
     }
 
     @media (max-width: 980px) {
-      .hero-grid,
-      .feature-row,
-      .download-box { grid-template-columns: 1fr; }
+      .hero-grid, .feature-row, .download-box { grid-template-columns: 1fr; }
       .hero-card { min-height: 540px; }
-      .grid,
-      .gallery { grid-template-columns: 1fr; }
+      .image-card { min-height: auto; }
+      .grid, .gallery { grid-template-columns: 1fr; }
       .shot:first-child { grid-row: span 1; }
       .nav-links a { display: none; }
     }
@@ -854,6 +568,7 @@
       .actions { flex-direction: column; }
       .btn { width: 100%; }
       .hero-card { min-height: 500px; border-radius: 28px; }
+      .image-card { min-height: auto; }
       .cover-art { inset: 12px; border-radius: 22px; }
       .cover-title { top: 120px; width: calc(100% - 46px); padding: 16px; }
       .cover-title strong { font-size: 2rem; }
@@ -872,8 +587,8 @@
 
   <header class="topbar">
     <div class="container nav">
-      <a class="brand" href="#inicio" aria-label="Início do site Barro e Sol">
-        <div class="brand-mark">☀</div>
+      <a class="brand" href="#inicio" aria-label="Barro e Sol - voltar ao topo">
+        <div class="brand-mark" aria-hidden="true">☀</div>
         <div>
           <strong>Barro & Sol</strong>
           <span>RPG de fazenda brasileiro</span>
@@ -886,7 +601,7 @@
         <a href="#galeria">Galeria</a>
         <a href="#progresso">Progresso</a>
         <a href="#download">Download</a>
-        <button class="music-btn" id="musicButton" type="button">♪ Música</button>
+        <button class="music-btn" id="musicButton" type="button" aria-label="Tocar música">♪ Música</button>
       </nav>
     </div>
   </header>
@@ -897,9 +612,7 @@
         <div>
           <div class="eyebrow">🌾 Em desenvolvimento • Pixel art • Fazenda • Mistério</div>
           <h1>Barro <em>&</em> Sol</h1>
-          <p class="lead">
-            Um RPG de fazenda brasileiro sobre recomeço, comunidade e segredos antigos. Plante, explore, conheça moradores e atravesse portais para ilhas onde o sol, a neblina e a magia escondem algo maior.
-          </p>
+          <p class="lead">Um RPG de fazenda brasileiro sobre recomeço, comunidade e segredos antigos. Plante, explore, conheça moradores e atravesse portais para ilhas onde o sol, a neblina e a magia escondem algo maior.</p>
 
           <div class="tags">
             <span class="tag">☀ Ilha Principal acolhedora</span>
@@ -914,136 +627,86 @@
           </div>
         </div>
 
-        <div class="hero-card" aria-label="Capa ilustrativa do jogo Barro e Sol">
-          <div class="cover-art">
-            <div class="cover-hills"></div>
-            <div class="cover-field"></div>
-            <div class="cover-river"></div>
-            <div class="cover-house"></div>
-            <div class="cover-portal"></div>
-          </div>
-
-          <div class="status-chip">Versão em desenvolvimento 🌻</div>
-
-          <div class="cover-title">
-            <strong>BARRO & SOL</strong>
-            <span>Fazenda • Vila • Portais</span>
-          </div>
-
-          <div class="cover-panel">
-            <div class="cover-stat">
-              <small>Gênero</small>
-              <strong>RPG de Fazenda</strong>
-            </div>
-            <div class="cover-stat">
-              <small>Clima</small>
-              <strong>Acolhedor + Mistério</strong>
-            </div>
-            <div class="cover-stat">
-              <small>Status</small>
-              <strong>Em desenvolvimento</strong>
-            </div>
-          </div>
-
-          <div class="hotbar" aria-label="Prévia da hotbar do jogo">
-            <div class="slot active">🌱</div>
-            <div class="slot">⛏</div>
-            <div class="slot">💧</div>
-            <div class="slot">🪓</div>
-            <div class="slot">🍅</div>
-            <div class="slot">🪵</div>
-            <div class="slot">🪨</div>
-            <div class="slot">🔮</div>
-            <div class="slot">🌾</div>
-            <div class="slot">📜</div>
-          </div>
+        <div class="hero-card image-card" role="img" aria-label="Cena de pôr do sol em uma fazenda com o logo Barro e Sol">
+          <img
+            class="hero-image"
+            src="./golden_sunset_over_rustic_farmstead.png"
+            alt="Logo Barro & Sol sobre uma fazenda brasileira ao pôr do sol"
+          />
+          <div class="image-status">Versão em desenvolvimento 🌻</div>
         </div>
       </div>
     </section>
 
-    <section id="historia">
-      <div class="container">
-        <div class="section-kicker">História</div>
-        <h2 class="section-title">Uma fazenda esquecida, uma vila viva e um portal antigo.</h2>
-        <p class="section-lead">
-          Ao chegar em uma pequena propriedade marcada pela terra vermelha e pelo sol forte, você descobre que a rotina da fazenda guarda pistas sobre a Semente dos Deuses, cinzas misteriosas e caminhos para regiões que ninguém da vila ousa visitar.
-        </p>
+    <section id="historia" class="container">
+      <div class="section-kicker">História</div>
+      <h2 class="section-title">Uma fazenda esquecida, uma vila viva e um portal antigo.</h2>
+      <p class="section-lead">Ao chegar em uma pequena propriedade marcada pela terra vermelha e pelo sol forte, você descobre que a rotina da fazenda guarda pistas sobre a Semente dos Deuses, cinzas misteriosas e caminhos para regiões que ninguém da vila ousa visitar.</p>
 
-        <div class="grid">
-          <article class="card"><div class="card-icon">🌱</div><h3>Cultive sua terra</h3><p>Prepare o solo, plante sementes, cuide da água e transforme um terreno simples em uma fazenda cheia de vida.</p></article>
-          <article class="card"><div class="card-icon">🏡</div><h3>Conheça os moradores</h3><p>Converse com NPCs, visite casas, descubra histórias locais e fortaleça sua relação com a comunidade.</p></article>
-          <article class="card"><div class="card-icon">✨</div><h3>Investigue o mistério</h3><p>Encontre pistas, itens raros, cinzas antigas e portais ligados a forças mágicas esquecidas.</p></article>
-        </div>
+      <div class="grid">
+        <article class="card"><div class="card-icon">🌱</div><h3>Cultive sua terra</h3><p>Prepare o solo, plante sementes, cuide da água e transforme um terreno simples em uma fazenda cheia de vida.</p></article>
+        <article class="card"><div class="card-icon">🏡</div><h3>Conheça os moradores</h3><p>Converse com NPCs, visite casas, descubra histórias locais e fortaleça sua relação com a comunidade.</p></article>
+        <article class="card"><div class="card-icon">✨</div><h3>Investigue o mistério</h3><p>Encontre pistas, itens raros, cinzas antigas e portais ligados a forças mágicas esquecidas.</p></article>
       </div>
     </section>
 
-    <section>
-      <div class="container feature-row">
-        <article class="card trailer-card"><div><div class="play-circle">▶</div><h3>Trailer / Gameplay</h3><p>Espaço reservado para colocar um vídeo, GIF em loop ou prévia real do jogo.</p></div></article>
+    <section class="container">
+      <div class="feature-row">
+        <article class="card trailer-card"><div><div class="play-circle" aria-hidden="true">▶</div><h3>Trailer / Gameplay</h3><p>Espaço reservado para colocar um vídeo, GIF em loop ou prévia real do jogo.</p></div></article>
         <article class="card"><div class="section-kicker">Clima do jogo</div><h2 class="section-title">Calmo como uma tarde na roça. Estranho como uma lenda antiga.</h2><p class="section-lead" style="margin-bottom: 0;">A Ilha Principal traz aconchego, música leve e rotina de fazenda. A Ilha Cinzenta muda tudo com neblina, tensão e sensação de perigo. A Ilha Arcana fecha o contraste com brilho, magia e descoberta.</p></article>
       </div>
     </section>
 
-    <section id="ilhas">
-      <div class="container">
-        <div class="section-kicker">Mundo</div>
-        <h2 class="section-title">Três regiões, três atmosferas.</h2>
-        <p class="section-lead">Cada ilha terá visual, música, sensação e mecânicas próprias para deixar a exploração mais marcante.</p>
-        <div class="grid">
-          <article class="card island-main"><div class="card-icon">☀</div><h3>Ilha Principal</h3><p>Região quente, acolhedora e cheia de tons terrosos. É onde a fazenda, a vila e sua nova vida começam.</p></article>
-          <article class="card island-gray"><div class="card-icon">🌫</div><h3>Ilha Cinzenta</h3><p>Um lugar úmido, nebuloso e assustador. A terra parece doente, e algo antigo repousa sob a névoa.</p></article>
-          <article class="card island-arcane"><div class="card-icon">🔮</div><h3>Ilha Arcana</h3><p>Uma região mágica e misteriosa, ligada à Semente dos Deuses e a forças que alteram o mundo.</p></article>
+    <section id="ilhas" class="container">
+      <div class="section-kicker">Mundo</div>
+      <h2 class="section-title">Três regiões, três atmosferas.</h2>
+      <p class="section-lead">Cada ilha terá visual, música, sensação e mecânicas próprias para deixar a exploração mais marcante.</p>
+      <div class="grid">
+        <article class="card island-main"><div class="card-icon">☀</div><h3>Ilha Principal</h3><p>Região quente, acolhedora e cheia de tons terrosos. É onde a fazenda, a vila e sua nova vida começam.</p></article>
+        <article class="card island-gray"><div class="card-icon">🌫</div><h3>Ilha Cinzenta</h3><p>Um lugar úmido, nebuloso e assustador. A terra parece doente, e algo antigo repousa sob a névoa.</p></article>
+        <article class="card island-arcane"><div class="card-icon">🔮</div><h3>Ilha Arcana</h3><p>Uma região mágica e misteriosa, ligada à Semente dos Deuses e a forças que alteram o mundo.</p></article>
+      </div>
+    </section>
+
+    <section id="galeria" class="container">
+      <div class="section-kicker">Galeria</div>
+      <h2 class="section-title">Prévia visual do universo.</h2>
+      <p class="section-lead">Estes blocos são espaços temporários. Quando você tiver prints reais do jogo, é só trocar por imagens e o site vai ficar com cara de página oficial.</p>
+      <div class="gallery">
+        <div class="shot farm"></div><div class="shot gray"></div><div class="shot arcane"></div><div class="shot village"></div><div class="shot hudshot"></div>
+      </div>
+    </section>
+
+    <section id="recursos" class="container">
+      <div class="section-kicker">Recursos</div>
+      <h2 class="section-title">O que está sendo construído.</h2>
+      <p class="section-lead">O objetivo é criar um RPG de fazenda com boa sensação de progressão, interface bonita, exploração e sistemas que possam crescer em futuras versões.</p>
+      <div class="grid">
+        <article class="card"><div class="card-icon">🎒</div><h3>Inventário e hotbar</h3><ul><li>Ferramentas selecionáveis</li><li>Mochila e itens coletáveis</li><li>HUD compacto e bonito</li></ul></article>
+        <article class="card"><div class="card-icon">🗺</div><h3>Mapa e exploração</h3><ul><li>Câmera acompanhando o jogador</li><li>Casas e interiores separados</li><li>Portais entre ilhas</li></ul></article>
+        <article class="card"><div class="card-icon">💾</div><h3>Progresso e história</h3><ul><li>Sistema de save/load</li><li>Missões e pistas</li><li>Atualizações por versão</li></ul></article>
+      </div>
+    </section>
+
+    <section id="progresso" class="container">
+      <div class="section-kicker">Roadmap</div>
+      <h2 class="section-title">Andamento do desenvolvimento.</h2>
+      <p class="section-lead">Estes valores são uma prévia visual. Você pode mudar as porcentagens conforme o projeto evoluir.</p>
+      <div class="card">
+        <div class="progress-wrap">
+          <div class="progress-item"><strong>Arte / UI</strong><div class="meter"><span style="--value: 78%"></span></div><span>78%</span></div>
+          <div class="progress-item"><strong>Fazenda</strong><div class="meter"><span style="--value: 62%"></span></div><span>62%</span></div>
+          <div class="progress-item"><strong>Casas / Interiores</strong><div class="meter"><span style="--value: 46%"></span></div><span>46%</span></div>
+          <div class="progress-item"><strong>Ilhas especiais</strong><div class="meter"><span style="--value: 38%"></span></div><span>38%</span></div>
+          <div class="progress-item"><strong>Android</strong><div class="meter"><span style="--value: 25%"></span></div><span>25%</span></div>
         </div>
       </div>
     </section>
 
-    <section id="galeria">
-      <div class="container">
-        <div class="section-kicker">Galeria</div>
-        <h2 class="section-title">Prévia visual do universo.</h2>
-        <p class="section-lead">Estes blocos são espaços temporários. Quando você tiver prints reais do jogo, é só trocar por imagens e o site vai ficar com cara de página oficial.</p>
-        <div class="gallery">
-          <div class="shot farm"></div><div class="shot gray"></div><div class="shot arcane"></div><div class="shot village"></div><div class="shot hudshot"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="recursos">
-      <div class="container">
-        <div class="section-kicker">Recursos</div>
-        <h2 class="section-title">O que está sendo construído.</h2>
-        <p class="section-lead">O objetivo é criar um RPG de fazenda com boa sensação de progressão, interface bonita, exploração e sistemas que possam crescer em futuras versões.</p>
-        <div class="grid">
-          <article class="card"><div class="card-icon">🎒</div><h3>Inventário e hotbar</h3><ul><li>Ferramentas selecionáveis</li><li>Mochila e itens coletáveis</li><li>HUD compacto e bonito</li></ul></article>
-          <article class="card"><div class="card-icon">🗺</div><h3>Mapa e exploração</h3><ul><li>Câmera acompanhando o jogador</li><li>Casas e interiores separados</li><li>Portais entre ilhas</li></ul></article>
-          <article class="card"><div class="card-icon">💾</div><h3>Progresso e história</h3><ul><li>Sistema de save/load</li><li>Missões e pistas</li><li>Atualizações por versão</li></ul></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="progresso">
-      <div class="container">
-        <div class="section-kicker">Roadmap</div>
-        <h2 class="section-title">Andamento do desenvolvimento.</h2>
-        <p class="section-lead">Estes valores são uma prévia visual. Você pode mudar as porcentagens conforme o projeto evoluir.</p>
-        <div class="card">
-          <div class="progress-wrap">
-            <div class="progress-item"><strong>Arte / UI</strong><div class="meter"><span style="--value: 78%"></span></div><span>78%</span></div>
-            <div class="progress-item"><strong>Fazenda</strong><div class="meter"><span style="--value: 62%"></span></div><span>62%</span></div>
-            <div class="progress-item"><strong>Casas / Interiores</strong><div class="meter"><span style="--value: 46%"></span></div><span>46%</span></div>
-            <div class="progress-item"><strong>Ilhas especiais</strong><div class="meter"><span style="--value: 38%"></span></div><span>38%</span></div>
-            <div class="progress-item"><strong>Android</strong><div class="meter"><span style="--value: 25%"></span></div><span>25%</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="download">
-      <div class="container">
-        <div class="download-box">
-          <div><div class="section-kicker">Download</div><h2 class="section-title">Versões em preparação.</h2><p class="section-lead" style="margin-bottom: 0;">Os downloads ainda não foram liberados. Quando o APK e o EXE estiverem prontos, esta área poderá receber os links oficiais.</p><p class="notice">Status atual: projeto em desenvolvimento.</p></div>
-          <div class="actions" style="margin-top: 0;"><span class="btn btn-primary disabled" aria-disabled="true">Windows .EXE — Em desenvolvimento</span><span class="btn btn-secondary disabled" aria-disabled="true">Android .APK — Não disponível</span></div>
-        </div>
+    <section id="download" class="container">
+      <div class="download-box">
+        <div><div class="section-kicker">Download</div><h2 class="section-title">Versões em preparação.</h2><p class="section-lead" style="margin-bottom: 0;">Os downloads ainda não foram liberados. Quando o APK e o EXE estiverem prontos, esta área poderá receber os links oficiais.</p><p class="notice">Status atual: projeto em desenvolvimento.</p></div>
+        <div class="actions" style="margin-top: 0;"><button class="btn btn-primary" type="button" disabled>Windows .EXE — Em desenvolvimento</button><button class="btn btn-secondary" type="button" disabled>Android .APK — Não disponível</button></div>
       </div>
     </section>
   </main>
@@ -1068,8 +731,54 @@
         bass: [196, 196, 220, 220, 165, 165, 174, 174]
       };
 
+      function setButtonState(state) {
+        if (!app.musicButton) return;
+
+        if (state === 'unsupported') {
+          app.musicButton.disabled = true;
+          app.musicButton.textContent = '♪ Sem suporte';
+          app.musicButton.setAttribute('aria-label', 'Navegador sem suporte a áudio');
+          return;
+        }
+
+        if (state === 'playing') {
+          app.musicButton.textContent = '♪ Pausar';
+          app.musicButton.classList.add('playing');
+          app.musicButton.setAttribute('aria-label', 'Pausar música');
+          return;
+        }
+
+        app.musicButton.textContent = '♪ Música';
+        app.musicButton.classList.remove('playing');
+        app.musicButton.setAttribute('aria-label', 'Tocar música');
+      }
+
+      function createAudioGraph() {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          setButtonState('unsupported');
+          return false;
+        }
+
+        app.audioContext = new AudioContextClass();
+        app.masterGain = app.audioContext.createGain();
+        app.delayNode = app.audioContext.createDelay();
+        const feedback = app.audioContext.createGain();
+
+        app.masterGain.gain.value = 0.36;
+        app.delayNode.delayTime.value = 0.18;
+        feedback.gain.value = 0.15;
+
+        app.delayNode.connect(feedback);
+        feedback.connect(app.delayNode);
+        app.delayNode.connect(app.masterGain);
+        app.masterGain.connect(app.audioContext.destination);
+
+        return true;
+      }
+
       function playNote(freq, duration, type, volume) {
-        if (!app.audioContext || !app.masterGain || !app.delayNode) return;
+        if (!app.audioContext || app.audioContext.state !== 'running' || !app.masterGain || !app.delayNode) return;
 
         const oscillator = app.audioContext.createOscillator();
         const gain = app.audioContext.createGain();
@@ -1096,6 +805,8 @@
       }
 
       function loopMusic() {
+        if (!app.audioContext || app.audioContext.state !== 'running') return;
+
         const note = app.melody[app.step % app.melody.length];
         const low = app.bass[Math.floor(app.step / 2) % app.bass.length];
 
@@ -1105,57 +816,38 @@
         app.step += 1;
       }
 
-      function startMusic() {
+      async function startMusic() {
         if (app.playing) return;
+        if (!app.audioContext && !createAudioGraph()) return;
 
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextClass) {
-          app.musicButton.textContent = '♪ Áudio indisponível';
-          app.musicButton.disabled = true;
-          return;
+        try {
+          await app.audioContext.resume();
+          app.playing = true;
+          app.step = 0;
+          setButtonState('playing');
+          loopMusic();
+          window.clearInterval(app.timer);
+          app.timer = window.setInterval(loopMusic, 420);
+        } catch (error) {
+          setButtonState('stopped');
         }
-
-        app.audioContext = new AudioContextClass();
-        app.masterGain = app.audioContext.createGain();
-        app.delayNode = app.audioContext.createDelay();
-        const feedback = app.audioContext.createGain();
-
-        app.masterGain.gain.value = 0.36;
-        app.delayNode.delayTime.value = 0.18;
-        feedback.gain.value = 0.15;
-
-        app.delayNode.connect(feedback);
-        feedback.connect(app.delayNode);
-        app.delayNode.connect(app.masterGain);
-        app.masterGain.connect(app.audioContext.destination);
-
-        loopMusic();
-        app.timer = window.setInterval(loopMusic, 420);
-        app.playing = true;
-        app.musicButton.textContent = '♪ Pausar';
-        app.musicButton.classList.add('playing');
       }
 
-      function stopMusic() {
+      async function stopMusic() {
         if (!app.playing) return;
 
         window.clearInterval(app.timer);
         app.timer = null;
-
-        if (app.masterGain && app.audioContext) {
-          app.masterGain.gain.exponentialRampToValueAtTime(0.0001, app.audioContext.currentTime + 0.18);
-        }
-
         app.playing = false;
-        app.musicButton.textContent = '♪ Música';
-        app.musicButton.classList.remove('playing');
+        setButtonState('stopped');
 
-        window.setTimeout(() => {
-          if (app.audioContext) app.audioContext.close();
-          app.audioContext = null;
-          app.masterGain = null;
-          app.delayNode = null;
-        }, 240);
+        if (app.audioContext && app.audioContext.state === 'running') {
+          try {
+            await app.audioContext.suspend();
+          } catch (error) {
+            // Em alguns navegadores antigos, suspend pode falhar. O estado visual já foi atualizado.
+          }
+        }
       }
 
       function toggleMusic() {
@@ -1165,16 +857,18 @@
 
       function runTests() {
         console.assert(document.querySelectorAll('#musicButton').length === 1, 'Teste: deve existir exatamente um botão de música.');
-        console.assert(typeof toggleMusic === 'function', 'Teste: toggleMusic deve estar disponível no escopo interno.');
         console.assert(Array.isArray(app.melody) && app.melody.length > 0, 'Teste: melodia precisa ter notas.');
         console.assert(Array.isArray(app.bass) && app.bass.length > 0, 'Teste: baixo precisa ter notas.');
         console.assert(!Object.prototype.hasOwnProperty.call(window, 'musicButton'), 'Teste: musicButton não deve ser declarado no escopo global.');
+        console.assert(document.querySelectorAll('button[disabled]').length >= 2, 'Teste: botões de download devem estar desativados semanticamente.');
+        console.assert(typeof window.AudioContext !== 'undefined' || typeof window.webkitAudioContext !== 'undefined' || app.musicButton, 'Teste: fallback de áudio precisa preservar o botão.');
       }
 
       function init() {
         app.musicButton = document.getElementById('musicButton');
         if (!app.musicButton) return;
 
+        setButtonState('stopped');
         app.musicButton.addEventListener('click', toggleMusic);
         runTests();
       }
