@@ -612,6 +612,31 @@
     .trailer-caption p {
       color: #e8cfaa;
       line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .trailer-download {
+      width: fit-content;
+      min-height: 46px;
+      padding: 0 16px;
+      font-size: .95rem;
+    }
+
+    .dev-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .dev-info span {
+      display: inline-flex;
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: #ffe8bd;
+      background: rgba(0,0,0,.16);
+      border: 1px solid rgba(255,223,156,.18);
+      font-size: .92rem;
     }
 
     .image-shot img {
@@ -727,16 +752,17 @@
           </div>
 
           <div class="actions">
-            <a class="btn btn-primary" href="#download">Ver versões</a>
-            <a class="btn btn-secondary" href="#historia">Conhecer o jogo</a>
+            <a class="btn btn-primary" href="#trailer">Assistir trailer</a>
+            <a class="btn btn-secondary" href="#galeria">Ver imagens</a>
+            <a class="btn btn-secondary" href="#progresso">Acompanhar desenvolvimento</a>
           </div>
         </div>
 
         <div class="hero-card image-card" role="img" aria-label="Cena de pôr do sol em uma fazenda com o logo Barro e Sol">
           <img
             class="hero-image"
-            src="./golden_sunset_over_rustic_farmstead.png"
-            alt="Logo Barro & Sol sobre uma fazenda brasileira ao pôr do sol"
+            src="./barro_e_sol_trailer_capa.jpg"
+            alt="Capa oficial do trailer de Barro & Sol com fazenda ao pôr do sol e portal mágico"
           />
           <div class="image-status">Versão em desenvolvimento 🌻</div>
         </div>
@@ -755,7 +781,7 @@
       </div>
     </section>
 
-    <section class="container">
+    <section id="trailer" class="container">
       <div class="feature-row">
         <article class="card trailer-card trailer-video-card">
           <video
@@ -770,7 +796,8 @@
           </video>
           <div class="trailer-caption">
             <h3>Trailer oficial</h3>
-            <p>Prévia de Barro & Sol com clima de fazenda, mistério e ilhas mágicas.</p>
+            <p>Assista à primeira prévia de Barro & Sol: fazenda, mistério, portais e ilhas mágicas.</p>
+            <a class="btn btn-primary trailer-download" href="./barro_e_sol_trailer_compativel.mp4" download>Baixar trailer</a>
           </div>
         </article>
         <article class="card"><div class="section-kicker">Clima do jogo</div><h2 class="section-title">Calmo como uma tarde na roça. Estranho como uma lenda antiga.</h2><p class="section-lead" style="margin-bottom: 0;">A Ilha Principal traz aconchego, música leve e rotina de fazenda. A Ilha Cinzenta muda tudo com neblina, tensão e sensação de perigo. A Ilha Arcana fecha o contraste com brilho, magia e descoberta.</p></article>
@@ -790,8 +817,8 @@
 
     <section id="galeria" class="container">
       <div class="section-kicker">Galeria</div>
-      <h2 class="section-title">Prévia visual do universo.</h2>
-      <p class="section-lead">Estes blocos são espaços temporários. Quando você tiver prints reais do jogo, é só trocar por imagens e o site vai ficar com cara de página oficial.</p>
+      <h2 class="section-title">Galeria das ilhas.</h2>
+      <p class="section-lead">Conheça as três regiões principais do mundo de Barro & Sol: a ilha acolhedora da fazenda, a região cinzenta e a ilha arcana.</p>
       <div class="gallery gallery-three">
         <figure class="shot image-shot farm">
           <img src="./ilha-principal.png" alt="Imagem da Ilha Principal de Barro & Sol" />
@@ -838,14 +865,23 @@
 
     <section id="download" class="container">
       <div class="download-box">
-        <div><div class="section-kicker">Download</div><h2 class="section-title">Versões em preparação.</h2><p class="section-lead" style="margin-bottom: 0;">Os downloads ainda não foram liberados. Quando o APK e o EXE estiverem prontos, esta área poderá receber os links oficiais.</p><p class="notice">Status atual: projeto em desenvolvimento.</p></div>
+        <div>
+          <div class="section-kicker">Download</div>
+          <h2 class="section-title">Versões em preparação.</h2>
+          <p class="section-lead" style="margin-bottom: 0;">Os downloads ainda não foram liberados. Quando o APK e o EXE estiverem prontos, esta área receberá os links oficiais.</p>
+          <div class="dev-info">
+            <span><strong>Status:</strong> Pré-alpha</span>
+            <span><strong>Plataformas:</strong> Windows e Android</span>
+            <span><strong>Última atualização:</strong> Maio de 2026</span>
+          </div>
+        </div>
         <div class="actions" style="margin-top: 0;"><button class="btn btn-primary" type="button" disabled>Windows .EXE — Em desenvolvimento</button><button class="btn btn-secondary" type="button" disabled>Android .APK — Não disponível</button></div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-content"><p>© 2026 Barro & Sol — RPG de Fazenda Brasileiro</p><p>Feito com barro, sol, mistério e pixel art.</p></div>
+    <div class="container footer-content"><p>© 2026 Barro & Sol — RPG de Fazenda Brasileiro</p><p>Site oficial em desenvolvimento • PC e Android planejados</p></div>
   </footer>
 
   <script>
