@@ -552,22 +552,64 @@
     .island-gray { background: radial-gradient(circle at top right, rgba(210,220,220,.13), transparent 12rem), linear-gradient(135deg, rgba(135,144,144,.28), rgba(30,36,36,.12)); }
     .island-arcane { background: radial-gradient(circle at top right, rgba(217,196,255,.15), transparent 12rem), linear-gradient(135deg, rgba(155,122,227,.30), rgba(246,184,77,.08)); }
 
-    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 320px; gap: 18px; }
-    .gallery-three .shot:first-child { grid-row: span 1; }
-    .shot { position: relative; overflow: hidden; border-radius: 26px; border: 1px solid var(--line); box-shadow: 0 22px 70px rgba(0,0,0,.22); background: linear-gradient(135deg, rgba(255,223,156,.14), rgba(255,255,255,.04)); }
-    .shot:first-child { grid-row: span 1; }
-    .shot::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 72% 20%, rgba(255,255,255,.17), transparent 8rem), linear-gradient(180deg, transparent 0 68%, rgba(0,0,0,.18) 100%), repeating-linear-gradient(90deg, rgba(255,255,255,.045) 0 10px, transparent 10px 30px); }
-    .shot::after { position: absolute; left: 16px; bottom: 16px; padding: 10px 12px; border-radius: 14px; color: #fff0cf; font-weight: 750; background: rgba(29,16,10,.72); border: 1px solid rgba(255,223,156,.22); backdrop-filter: blur(10px); }
-    .shot.farm { background: linear-gradient(135deg, #78934d, #d18a48 54%, #6a3923); }
-    .shot.gray { background: linear-gradient(135deg, #828c8b, #303838); }
-    .shot.arcane { background: linear-gradient(135deg, #6848a9, #a58aec); }
-    .shot.village { background: linear-gradient(135deg, #d59954, #7a462b); }
-    .shot.hudshot { background: linear-gradient(135deg, #324d2a, #8d5031); }
-    .shot.farm::after { content: "Fazenda principal"; }
-    .shot.gray::after { content: "Ilha Cinzenta"; }
-    .shot.arcane::after { content: "Ilha Arcana"; }
-    .shot.village::after { content: "Vila e moradores"; }
-    .shot.hudshot::after { content: "HUD e hotbar"; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .shot {
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,223,156,.26);
+      box-shadow: 0 22px 70px rgba(0,0,0,.24);
+      background: #1d100a;
+      isolation: isolate;
+    }
+
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(.98) saturate(1.08) contrast(1.04);
+      transition: transform .32s ease, filter .32s ease;
+    }
+
+    .shot:hover img {
+      filter: brightness(1.08) saturate(1.14) contrast(1.06);
+      transform: scale(1.035);
+    }
+
+    .shot::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 44%;
+      z-index: 2;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent, rgba(18,11,7,.78));
+    }
+
+    .shot figcaption {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      z-index: 3;
+      padding: 10px 13px;
+      border-radius: 14px;
+      color: #fff0cf;
+      font-weight: 850;
+      background: rgba(29,16,10,.74);
+      border: 1px solid rgba(255,223,156,.28);
+      backdrop-filter: blur(10px);
+      font-size: .95rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
+    }
 
     .progress-wrap { display: grid; gap: 13px; }
     .progress-item { display: grid; grid-template-columns: 170px 1fr 62px; gap: 14px; align-items: center; padding: 14px; border-radius: 18px; color: #ffe8bd; background: rgba(0,0,0,.14); border: 1px solid rgba(255,223,156,.16); }
@@ -840,33 +882,7 @@
       .nav-links a { display: none; }
     }
 
-    @media (max-width: 640px) {
-      .container { width: min(100% - 24px, var(--max)); }
-      .nav { min-height: 68px; }
-      .brand span { display: none; }
-      .hero { padding: 46px 0 54px; }
-      h1 { font-size: clamp(3.15rem, 18vw, 5.1rem); letter-spacing: -2px; }
-      .game-logo { gap: 10px; padding: 14px 16px; }
-      .logo-main { font-size: clamp(2.6rem, 15vw, 4.4rem); letter-spacing: -2px; }
-      .logo-and { width: 52px; height: 52px; font-size: 2rem; }
-      .actions { flex-direction: column; }
-      .btn { width: 100%; }
-      .hero-card { min-height: 500px; border-radius: 28px; }
-      .image-card { min-height: auto; }
-      .cover-art { inset: 12px; border-radius: 22px; }
-      .cover-title { top: 120px; width: calc(100% - 46px); padding: 16px; }
-      .cover-title strong { font-size: 2rem; }
-      .cover-panel { grid-template-columns: 1fr; bottom: 120px; }
-      .cover-stat:nth-child(2), .cover-stat:nth-child(3) { display: none; }
-      .hotbar { grid-template-columns: repeat(5, 1fr); }
-      .cover-house { left: 34px; transform: scale(.82); transform-origin: left bottom; }
-      .cover-portal { right: 42px; transform: scale(.82); transform-origin: right bottom; }
-      .progress-item { grid-template-columns: 1fr; }
-      .roadmap-step { grid-template-columns: 1fr; }
-      .devlog-item { grid-template-columns: 1fr; }
-      .devlog-version { white-space: normal; }
-      .credits-card { align-items: flex-start; flex-direction: column; }
-      .credits-avatar { width: 62px; height: 62px; flex-basis: 62px; }
+    @media (max-width: 640px) {$1.shot { height: 240px; }
       section { padding: 60px 0; }
     }
   </style>
@@ -1203,172 +1219,6 @@
   <footer>
     <div class="container footer-content"><p>© 2026 Barro & Sol — Criado por Felipe Gabriel (Souza)</p><p><a href="https://github.com/gfelipestr-gif/Barro-Sol" target="_blank" rel="noopener noreferrer">Projeto no GitHub</a> • Feito com C# MonoGame • PC e Android planejados</p></div>
   </footer>
-
-  <script>
-    (() => {
-      'use strict';
-
-      const app = {
-        musicButton: null,
-        audioContext: null,
-        masterGain: null,
-        delayNode: null,
-        timer: null,
-        playing: false,
-        step: 0,
-        melody: [392, 440, 494, 440, 392, 330, 349, 392, 440, 392, 349, 330, 294, 330, 349, 392],
-        bass: [196, 196, 220, 220, 165, 165, 174, 174]
-      };
-
-      function setButtonState(state) {
-        if (!app.musicButton) return;
-
-        if (state === 'unsupported') {
-          app.musicButton.disabled = true;
-          app.musicButton.textContent = '♪ Sem suporte';
-          app.musicButton.setAttribute('aria-label', 'Navegador sem suporte a áudio');
-          return;
-        }
-
-        if (state === 'playing') {
-          app.musicButton.textContent = '♪ Pausar';
-          app.musicButton.classList.add('playing');
-          app.musicButton.setAttribute('aria-label', 'Pausar música');
-          return;
-        }
-
-        app.musicButton.textContent = '♪ Música';
-        app.musicButton.classList.remove('playing');
-        app.musicButton.setAttribute('aria-label', 'Tocar música');
-      }
-
-      function createAudioGraph() {
-        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContextClass) {
-          setButtonState('unsupported');
-          return false;
-        }
-
-        app.audioContext = new AudioContextClass();
-        app.masterGain = app.audioContext.createGain();
-        app.delayNode = app.audioContext.createDelay();
-        const feedback = app.audioContext.createGain();
-
-        app.masterGain.gain.value = 0.36;
-        app.delayNode.delayTime.value = 0.18;
-        feedback.gain.value = 0.15;
-
-        app.delayNode.connect(feedback);
-        feedback.connect(app.delayNode);
-        app.delayNode.connect(app.masterGain);
-        app.masterGain.connect(app.audioContext.destination);
-
-        return true;
-      }
-
-      function playNote(freq, duration, type, volume) {
-        if (!app.audioContext || app.audioContext.state !== 'running' || !app.masterGain || !app.delayNode) return;
-
-        const oscillator = app.audioContext.createOscillator();
-        const gain = app.audioContext.createGain();
-
-        oscillator.type = type;
-        oscillator.frequency.value = freq;
-
-        gain.gain.setValueAtTime(0.0001, app.audioContext.currentTime);
-        gain.gain.linearRampToValueAtTime(volume, app.audioContext.currentTime + 0.02);
-        gain.gain.exponentialRampToValueAtTime(0.0001, app.audioContext.currentTime + duration);
-
-        oscillator.connect(gain);
-        gain.connect(app.delayNode);
-        gain.connect(app.masterGain);
-
-        oscillator.start();
-        oscillator.stop(app.audioContext.currentTime + duration + 0.05);
-      }
-
-      function playChord(root) {
-        playNote(root, 0.95, 'triangle', 0.045);
-        playNote(root * 1.25, 0.95, 'triangle', 0.026);
-        playNote(root * 1.5, 0.95, 'triangle', 0.022);
-      }
-
-      function loopMusic() {
-        if (!app.audioContext || app.audioContext.state !== 'running') return;
-
-        const note = app.melody[app.step % app.melody.length];
-        const low = app.bass[Math.floor(app.step / 2) % app.bass.length];
-
-        playNote(note, 0.42, 'sine', 0.052);
-        if (app.step % 2 === 0) playNote(low, 0.55, 'triangle', 0.038);
-        if (app.step % 8 === 0) playChord(low);
-        app.step += 1;
-      }
-
-      async function startMusic() {
-        if (app.playing) return;
-        if (!app.audioContext && !createAudioGraph()) return;
-
-        try {
-          await app.audioContext.resume();
-          app.playing = true;
-          app.step = 0;
-          setButtonState('playing');
-          loopMusic();
-          window.clearInterval(app.timer);
-          app.timer = window.setInterval(loopMusic, 420);
-        } catch (error) {
-          setButtonState('stopped');
-        }
-      }
-
-      async function stopMusic() {
-        if (!app.playing) return;
-
-        window.clearInterval(app.timer);
-        app.timer = null;
-        app.playing = false;
-        setButtonState('stopped');
-
-        if (app.audioContext && app.audioContext.state === 'running') {
-          try {
-            await app.audioContext.suspend();
-          } catch (error) {
-            // Em alguns navegadores antigos, suspend pode falhar. O estado visual já foi atualizado.
-          }
-        }
-      }
-
-      function toggleMusic() {
-        if (app.playing) stopMusic();
-        else startMusic();
-      }
-
-      function runTests() {
-        console.assert(document.querySelectorAll('#musicButton').length === 1, 'Teste: deve existir exatamente um botão de música.');
-        console.assert(Array.isArray(app.melody) && app.melody.length > 0, 'Teste: melodia precisa ter notas.');
-        console.assert(Array.isArray(app.bass) && app.bass.length > 0, 'Teste: baixo precisa ter notas.');
-        console.assert(!Object.prototype.hasOwnProperty.call(window, 'musicButton'), 'Teste: musicButton não deve ser declarado no escopo global.');
-        console.assert(document.querySelectorAll('button[disabled]').length >= 2, 'Teste: botões de download devem estar desativados semanticamente.');
-        console.assert(typeof window.AudioContext !== 'undefined' || typeof window.webkitAudioContext !== 'undefined' || app.musicButton, 'Teste: fallback de áudio precisa preservar o botão.');
-      }
-
-      function init() {
-        app.musicButton = document.getElementById('musicButton');
-        if (!app.musicButton) return;
-
-        setButtonState('stopped');
-        app.musicButton.addEventListener('click', toggleMusic);
-        runTests();
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init, { once: true });
-      } else {
-        init();
-      }
-    })();
-  </script>
   <script>
     (() => {
       'use strict';
