@@ -664,6 +664,164 @@
       content: none;
     }
 
+    .devlog-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .devlog-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 18px;
+      padding: 20px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 58px rgba(0,0,0,.18);
+    }
+
+    .devlog-version {
+      width: fit-content;
+      height: fit-content;
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: #271609;
+      background: linear-gradient(180deg, var(--sun-2), var(--sun));
+      font-weight: 850;
+      font-size: .9rem;
+      white-space: nowrap;
+    }
+
+    .devlog-item h3 {
+      margin-bottom: 8px;
+      color: #ffe8bd;
+      font-size: 1.18rem;
+    }
+
+    .devlog-item p {
+      color: #e8cfaa;
+      line-height: 1.72;
+    }
+
+    .dev-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .dev-info span {
+      display: inline-flex;
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: #ffe8bd;
+      background: rgba(0,0,0,.16);
+      border: 1px solid rgba(255,223,156,.18);
+      font-size: .92rem;
+    }
+
+    .credits-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 58px rgba(0,0,0,.18);
+    }
+
+    .credits-avatar {
+      width: 76px;
+      height: 76px;
+      flex: 0 0 76px;
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      color: #271609;
+      background: linear-gradient(180deg, var(--sun-2), var(--sun));
+      font-size: 2rem;
+      box-shadow: 0 18px 46px rgba(0,0,0,.22), 0 0 38px rgba(246,184,77,.18);
+    }
+
+    .credits-card h3 {
+      margin-bottom: 8px;
+      color: #ffe8bd;
+      font-size: 1.35rem;
+    }
+
+    .credits-card p {
+      color: #e8cfaa;
+      line-height: 1.72;
+    }
+
+    .roadmap-game {
+      display: grid;
+      gap: 16px;
+    }
+
+    .roadmap-step {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 20px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 58px rgba(0,0,0,.18);
+    }
+
+    .roadmap-version {
+      width: fit-content;
+      padding: 10px 13px;
+      border-radius: 999px;
+      color: #271609;
+      background: linear-gradient(180deg, var(--sun-2), var(--sun));
+      font-weight: 900;
+      font-size: .95rem;
+      white-space: nowrap;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+
+    .roadmap-step h3 {
+      margin-bottom: 8px;
+      color: #ffe8bd;
+      font-size: 1.22rem;
+    }
+
+    .roadmap-step p {
+      color: #e8cfaa;
+      line-height: 1.72;
+    }
+
+    .roadmap-final {
+      border-color: rgba(255, 226, 154, .42);
+      background: radial-gradient(circle at top right, rgba(255,226,154,.16), transparent 14rem), linear-gradient(180deg, var(--panel-2), var(--panel));
+    }
+
+    .roadmap-divider {
+      margin: 10px 0 2px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      color: #ffe8bd;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,223,156,.18);
+      font-weight: 850;
+      letter-spacing: .3px;
+      text-align: center;
+    }
+
+    .roadmap-future {
+      border-color: rgba(217,196,255,.18);
+      background: radial-gradient(circle at top right, rgba(155,122,227,.10), transparent 14rem), linear-gradient(180deg, var(--panel-2), var(--panel));
+    }
+
+    .roadmap-demo {
+      border-color: rgba(165,191,108,.38);
+      background: radial-gradient(circle at top right, rgba(165,191,108,.17), transparent 14rem), linear-gradient(180deg, var(--panel-2), var(--panel));
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .01ms !important;
@@ -704,6 +862,11 @@
       .cover-house { left: 34px; transform: scale(.82); transform-origin: left bottom; }
       .cover-portal { right: 42px; transform: scale(.82); transform-origin: right bottom; }
       .progress-item { grid-template-columns: 1fr; }
+      .roadmap-step { grid-template-columns: 1fr; }
+      .devlog-item { grid-template-columns: 1fr; }
+      .devlog-version { white-space: normal; }
+      .credits-card { align-items: flex-start; flex-direction: column; }
+      .credits-avatar { width: 62px; height: 62px; flex-basis: 62px; }
       section { padding: 60px 0; }
     }
   </style>
@@ -726,6 +889,8 @@
         <a href="#ilhas">Ilhas</a>
         <a href="#galeria">Galeria</a>
         <a href="#progresso">Progresso</a>
+        <a href="#devlog">Devlog</a>
+        <a href="#creditos">Créditos</a>
         <a href="#download">Download</a>
         <button class="music-btn" id="musicButton" type="button" aria-label="Tocar música">♪ Música</button>
       </nav>
@@ -755,6 +920,7 @@
             <a class="btn btn-primary" href="#trailer">Assistir trailer</a>
             <a class="btn btn-secondary" href="#galeria">Ver imagens</a>
             <a class="btn btn-secondary" href="#progresso">Acompanhar desenvolvimento</a>
+            <a class="btn btn-secondary" href="https://github.com/gfelipestr-gif/Barro-Sol" target="_blank" rel="noopener noreferrer">Ver no GitHub</a>
           </div>
         </div>
 
@@ -819,46 +985,197 @@
       <div class="section-kicker">Galeria</div>
       <h2 class="section-title">Galeria das ilhas.</h2>
       <p class="section-lead">Conheça as três regiões principais do mundo de Barro & Sol: a ilha acolhedora da fazenda, a região cinzenta e a ilha arcana.</p>
-      <div class="gallery gallery-three">
-        <figure class="shot image-shot farm">
-          <img src="./ilha-principal.png" alt="Imagem da Ilha Principal de Barro & Sol" />
+      
+      <div class="gallery">
+        <figure class="shot">
+          <img src="./ilha-principal.png" alt="Imagem da Ilha Principal de Barro & Sol">
           <figcaption>Ilha Principal</figcaption>
         </figure>
 
-        <figure class="shot image-shot gray">
-          <img src="./ilha-cinzenta.png" alt="Imagem da Ilha Cinzenta de Barro & Sol" />
+        <figure class="shot">
+          <img src="./ilha-cinzenta.png" alt="Imagem da Ilha Cinzenta de Barro & Sol">
           <figcaption>Ilha Cinzenta</figcaption>
         </figure>
 
-        <figure class="shot image-shot arcane">
-          <img src="./ilha-arcana.png" alt="Imagem da Ilha Arcana de Barro & Sol" />
+        <figure class="shot">
+          <img src="./ilha-arcana.png" alt="Imagem da Ilha Arcana de Barro & Sol">
           <figcaption>Ilha Arcana</figcaption>
         </figure>
       </div>
     </section>
 
-    <section id="recursos" class="container">
-      <div class="section-kicker">Recursos</div>
-      <h2 class="section-title">O que está sendo construído.</h2>
-      <p class="section-lead">O objetivo é criar um RPG de fazenda com boa sensação de progressão, interface bonita, exploração e sistemas que possam crescer em futuras versões.</p>
-      <div class="grid">
-        <article class="card"><div class="card-icon">🎒</div><h3>Inventário e hotbar</h3><ul><li>Ferramentas selecionáveis</li><li>Mochila e itens coletáveis</li><li>HUD compacto e bonito</li></ul></article>
-        <article class="card"><div class="card-icon">🗺</div><h3>Mapa e exploração</h3><ul><li>Câmera acompanhando o jogador</li><li>Casas e interiores separados</li><li>Portais entre ilhas</li></ul></article>
-        <article class="card"><div class="card-icon">💾</div><h3>Progresso e história</h3><ul><li>Sistema de save/load</li><li>Missões e pistas</li><li>Atualizações por versão</li></ul></article>
+    <section id="progresso" class="container">
+      <div class="section-kicker">Roadmap do jogo</div>
+      <h2 class="section-title">Próximas atualizações de Barro & Sol.</h2>
+      <p class="section-lead">A meta principal agora é estabilizar as ilhas, organizar as cenas e chegar em uma primeira versão de PC jogável e postável.</p>
+      
+      <div class="roadmap-game">
+        <article class="roadmap-step">
+          <span class="roadmap-version">V3.4</span>
+          <div>
+            <h3>Estabilizar Ilha Principal</h3>
+            <p>Corrigir o fluxo principal da fazenda, revisar colisões, caminhos, tiles, câmera, entrada/saída de áreas e garantir que a ilha base fique jogável.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step">
+          <span class="roadmap-version">V3.5</span>
+          <div>
+            <h3>Corrigir Ilha Cinzenta</h3>
+            <p>Aplicar o mapa correto, ajustar tiles, aumentar a atmosfera sombria, revisar neblina, passagens, colisões e sensação de perigo.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step">
+          <span class="roadmap-version">V3.6</span>
+          <div>
+            <h3>Corrigir Ilha Arcana</h3>
+            <p>Organizar tiles mágicos, caminhos, construções, portais, efeitos visuais e identidade visual da ilha arcana.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step">
+          <span class="roadmap-version">V3.7</span>
+          <div>
+            <h3>Casas e interiores separados</h3>
+            <p>Remover interiores do meio do mapa, criar cenas internas próprias e permitir entrar/sair das casas corretamente.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step">
+          <span class="roadmap-version">V3.8</span>
+          <div>
+            <h3>HUD e hotbar finalizados</h3>
+            <p>Finalizar interface, energia, vida, dinheiro, horário, itens, seleção de slots, mouse, teclado e layout limpo para PC.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step">
+          <span class="roadmap-version">V3.9</span>
+          <div>
+            <h3>Save/load funcional</h3>
+            <p>Salvar posição, inventário, progresso, estado das plantações, ilhas desbloqueadas, horário e dados principais do jogador.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step roadmap-final">
+          <span class="roadmap-version">V4.0</span>
+          <div>
+            <h3>Primeira versão jogável/postável para PC</h3>
+            <p>Gerar uma versão estável para testes, com fluxo inicial jogável, ilhas funcionando, HUD limpo e pacote preparado para divulgação.</p>
+          </div>
+        </article>
+
+        <div class="roadmap-divider">Depois da primeira versão jogável</div>
+
+        <article class="roadmap-step roadmap-future">
+          <span class="roadmap-version">V4.1</span>
+          <div>
+            <h3>Correções pós-teste</h3>
+            <p>Corrigir bugs encontrados pelos primeiros testes, revisar travamentos, colisões, telas quebradas, desempenho e pequenos ajustes de jogabilidade.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step roadmap-future">
+          <span class="roadmap-version">V4.2</span>
+          <div>
+            <h3>Sons e músicas</h3>
+            <p>Adicionar trilhas da Ilha Principal, músicas de tensão da Ilha Cinzenta, temas mágicos da Ilha Arcana e efeitos sonoros para ferramentas, água, passos, menus e portais.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step roadmap-future">
+          <span class="roadmap-version">V4.3</span>
+          <div>
+            <h3>NPCs e diálogos</h3>
+            <p>Criar falas, rotinas, horários, reações simples e pequenas histórias para deixar a vila mais viva e conectada com o mundo do jogo.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step roadmap-future">
+          <span class="roadmap-version">V4.4</span>
+          <div>
+            <h3>Missões iniciais</h3>
+            <p>Implementar tutorial, primeiras tarefas da fazenda, introdução ao portal, pistas da Semente dos Deuses e objetivos para guiar o jogador no começo.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step roadmap-future">
+          <span class="roadmap-version">V4.5</span>
+          <div>
+            <h3>Loja e economia</h3>
+            <p>Adicionar compra de sementes, venda de colheitas, dinheiro, preços, recompensas e primeiros sistemas de evolução da fazenda.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step roadmap-future">
+          <span class="roadmap-version">V4.6</span>
+          <div>
+            <h3>Polimento visual</h3>
+            <p>Melhorar tiles, menus, transições, escala visual, legibilidade, efeitos de neblina, brilho mágico, performance e consistência da pixel art.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step roadmap-future">
+          <span class="roadmap-version">V4.7</span>
+          <div>
+            <h3>Configurações</h3>
+            <p>Criar tela de opções com volume de música, efeitos, tela cheia, resolução, controles, idioma e preferências de acessibilidade.</p>
+          </div>
+        </article>
+
+        <article class="roadmap-step roadmap-demo">
+          <span class="roadmap-version">V5.0</span>
+          <div>
+            <h3>Demo pública</h3>
+            <p>Preparar uma demo oficial para divulgação, com download organizado, trailer, site atualizado, instruções de instalação e versão estável para jogadores.</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="progresso" class="container">
-      <div class="section-kicker">Roadmap</div>
-      <h2 class="section-title">Andamento do desenvolvimento.</h2>
-      <p class="section-lead">Estes valores são uma prévia visual. Você pode mudar as porcentagens conforme o projeto evoluir.</p>
-      <div class="card">
-        <div class="progress-wrap">
-          <div class="progress-item"><strong>Arte / UI</strong><div class="meter"><span style="--value: 78%"></span></div><span>78%</span></div>
-          <div class="progress-item"><strong>Fazenda</strong><div class="meter"><span style="--value: 62%"></span></div><span>62%</span></div>
-          <div class="progress-item"><strong>Casas / Interiores</strong><div class="meter"><span style="--value: 46%"></span></div><span>46%</span></div>
-          <div class="progress-item"><strong>Ilhas especiais</strong><div class="meter"><span style="--value: 38%"></span></div><span>38%</span></div>
-          <div class="progress-item"><strong>Android</strong><div class="meter"><span style="--value: 25%"></span></div><span>25%</span></div>
+    <section id="devlog" class="container">
+      <div class="section-kicker">Devlog</div>
+      <h2 class="section-title">Atualizações recentes.</h2>
+      <p class="section-lead">Acompanhe as principais mudanças do site oficial e do desenvolvimento de Barro & Sol.</p>
+
+      <div class="devlog-list">
+        <article class="devlog-item">
+          <span class="devlog-version">Site V1.2</span>
+          <div>
+            <h3>Trailer, galeria limpa e página mais oficial</h3>
+            <p>Adicionada área de trailer oficial, capa nova, galeria focada nas três ilhas, botão do GitHub e downloads organizados como em desenvolvimento.</p>
+          </div>
+        </article>
+
+        <article class="devlog-item">
+          <span class="devlog-version">Site V1.1</span>
+          <div>
+            <h3>Identidade visual e favicon</h3>
+            <p>Adicionada logo visual na página inicial, favicon próprio do Barro & Sol e melhorias de acessibilidade no botão de música.</p>
+          </div>
+        </article>
+
+        <article class="devlog-item">
+          <span class="devlog-version">Site V1.0</span>
+          <div>
+            <h3>Primeira página publicada</h3>
+            <p>Site inicial publicado com história, ilhas, status do projeto e espaço para versões futuras do jogo.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="creditos" class="container">
+      <div class="section-kicker">Créditos</div>
+      <h2 class="section-title">Projeto independente brasileiro.</h2>
+      <p class="section-lead">Barro & Sol é um projeto autoral criado com carinho para valorizar um RPG de fazenda com identidade brasileira, clima acolhedor, mistério e pixel art.</p>
+
+      <div class="credits-card">
+        <div class="credits-avatar" aria-hidden="true">☀</div>
+        <div>
+          <h3>Criado por Felipe Gabriel (Souza)</h3>
+          <p>Desenvolvedor independente brasileiro • Projeto feito com C# MonoGame • Barro, sol, fazenda e fantasia.</p>
         </div>
       </div>
     </section>
@@ -867,7 +1184,7 @@
       <div class="download-box">
         <div>
           <div class="section-kicker">Download</div>
-          <h2 class="section-title">Versões em preparação.</h2>
+          <h2 class="section-title" style="margin-bottom: 8px;">Versões em preparação.</h2>
           <p class="section-lead" style="margin-bottom: 0;">Os downloads ainda não foram liberados. Quando o APK e o EXE estiverem prontos, esta área receberá os links oficiais.</p>
           <div class="dev-info">
             <span><strong>Status:</strong> Pré-alpha</span>
@@ -875,13 +1192,16 @@
             <span><strong>Última atualização:</strong> Maio de 2026</span>
           </div>
         </div>
-        <div class="actions" style="margin-top: 0;"><button class="btn btn-primary" type="button" disabled>Windows .EXE — Em desenvolvimento</button><button class="btn btn-secondary" type="button" disabled>Android .APK — Não disponível</button></div>
+        <div class="actions" style="margin-top: 0;">
+          <button class="btn btn-primary" type="button" disabled>Windows .EXE — Em desenvolvimento</button>
+          <button class="btn btn-secondary" type="button" disabled>Android .APK — Não disponível</button>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container footer-content"><p>© 2026 Barro & Sol — RPG de Fazenda Brasileiro</p><p>Site oficial em desenvolvimento • PC e Android planejados</p></div>
+    <div class="container footer-content"><p>© 2026 Barro & Sol — Criado por Felipe Gabriel (Souza)</p><p><a href="https://github.com/gfelipestr-gif/Barro-Sol" target="_blank" rel="noopener noreferrer">Projeto no GitHub</a> • Feito com C# MonoGame • PC e Android planejados</p></div>
   </footer>
 
   <script>
@@ -1040,6 +1360,161 @@
         setButtonState('stopped');
         app.musicButton.addEventListener('click', toggleMusic);
         runTests();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, { once: true });
+      } else {
+        init();
+      }
+    })();
+  </script>
+  <script>
+    (() => {
+      'use strict';
+
+      const app = {
+        musicButton: null,
+        audioContext: null,
+        masterGain: null,
+        delayNode: null,
+        timer: null,
+        playing: false,
+        step: 0,
+        melody: [392, 440, 494, 440, 392, 330, 349, 392, 440, 392, 349, 330, 294, 330, 349, 392],
+        bass: [196, 196, 220, 220, 165, 165, 174, 174]
+      };
+
+      function setButtonState(state) {
+        if (!app.musicButton) return;
+
+        if (state === 'unsupported') {
+          app.musicButton.disabled = true;
+          app.musicButton.textContent = '♪ Sem suporte';
+          app.musicButton.setAttribute('aria-label', 'Navegador sem suporte a áudio');
+          return;
+        }
+
+        if (state === 'playing') {
+          app.musicButton.textContent = '♪ Pausar';
+          app.musicButton.classList.add('playing');
+          app.musicButton.setAttribute('aria-label', 'Pausar música');
+          return;
+        }
+
+        app.musicButton.textContent = '♪ Música';
+        app.musicButton.classList.remove('playing');
+        app.musicButton.setAttribute('aria-label', 'Tocar música');
+      }
+
+      function createAudioGraph() {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          setButtonState('unsupported');
+          return false;
+        }
+
+        app.audioContext = new AudioContextClass();
+        app.masterGain = app.audioContext.createGain();
+        app.delayNode = app.audioContext.createDelay();
+        const feedback = app.audioContext.createGain();
+
+        app.masterGain.gain.value = 0.34;
+        app.delayNode.delayTime.value = 0.18;
+        feedback.gain.value = 0.14;
+
+        app.delayNode.connect(feedback);
+        feedback.connect(app.delayNode);
+        app.delayNode.connect(app.masterGain);
+        app.masterGain.connect(app.audioContext.destination);
+
+        return true;
+      }
+
+      function playNote(freq, duration, type, volume) {
+        if (!app.audioContext || app.audioContext.state !== 'running' || !app.masterGain || !app.delayNode) return;
+
+        const oscillator = app.audioContext.createOscillator();
+        const gain = app.audioContext.createGain();
+
+        oscillator.type = type;
+        oscillator.frequency.value = freq;
+
+        gain.gain.setValueAtTime(0.0001, app.audioContext.currentTime);
+        gain.gain.linearRampToValueAtTime(volume, app.audioContext.currentTime + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, app.audioContext.currentTime + duration);
+
+        oscillator.connect(gain);
+        gain.connect(app.delayNode);
+        gain.connect(app.masterGain);
+
+        oscillator.start();
+        oscillator.stop(app.audioContext.currentTime + duration + 0.05);
+      }
+
+      function playChord(root) {
+        playNote(root, 0.95, 'triangle', 0.04);
+        playNote(root * 1.25, 0.95, 'triangle', 0.024);
+        playNote(root * 1.5, 0.95, 'triangle', 0.020);
+      }
+
+      function loopMusic() {
+        if (!app.audioContext || app.audioContext.state !== 'running') return;
+
+        const note = app.melody[app.step % app.melody.length];
+        const low = app.bass[Math.floor(app.step / 2) % app.bass.length];
+
+        playNote(note, 0.42, 'sine', 0.048);
+        if (app.step % 2 === 0) playNote(low, 0.55, 'triangle', 0.034);
+        if (app.step % 8 === 0) playChord(low);
+        app.step += 1;
+      }
+
+      async function startMusic() {
+        if (app.playing) return;
+        if (!app.audioContext && !createAudioGraph()) return;
+
+        try {
+          await app.audioContext.resume();
+          app.playing = true;
+          app.step = 0;
+          setButtonState('playing');
+          loopMusic();
+          window.clearInterval(app.timer);
+          app.timer = window.setInterval(loopMusic, 420);
+        } catch (error) {
+          setButtonState('stopped');
+        }
+      }
+
+      async function stopMusic() {
+        if (!app.playing) return;
+
+        window.clearInterval(app.timer);
+        app.timer = null;
+        app.playing = false;
+        setButtonState('stopped');
+
+        if (app.audioContext && app.audioContext.state === 'running') {
+          try {
+            await app.audioContext.suspend();
+          } catch (error) {
+            // Estado visual já foi atualizado.
+          }
+        }
+      }
+
+      function toggleMusic() {
+        if (app.playing) stopMusic();
+        else startMusic();
+      }
+
+      function init() {
+        app.musicButton = document.getElementById('musicButton');
+        if (!app.musicButton) return;
+
+        setButtonState('stopped');
+        app.musicButton.addEventListener('click', toggleMusic);
       }
 
       if (document.readyState === 'loading') {
